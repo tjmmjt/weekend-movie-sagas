@@ -6,9 +6,12 @@ function MovieItemDetails() {
   // useSelector to retrieve Movie data
   const movieDetails = useSelector((store) => store.movieItemDetails);
   // console.log('Movie:', movieDetails)
+  const movieGenres = useSelector((store) => store.genres);
+
   return movieDetails.map((movie) => (
     <div key={movie.id} className="container">
       <div className="header">
+        <button>back to movie list</button>
         <h1>{movie.title}</h1>
       </div>
       <div className="movieImage">
