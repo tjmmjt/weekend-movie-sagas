@@ -33,9 +33,9 @@ function* fetchDetails(action) {
   try {
     const detailsResponse = yield axios.get(`/api/details/${action.payload}`);
     // console.log('fetchDetails action payload:', action.payload); // // test to make sure action.payload === movie.id
-    console.log("detailsResponse:", detailsResponse); // // test details response === specific movie
+    console.log("detailsResponse:", detailsResponse.data); // // test details response === specific movie
     // PUT/SET_DETAILS Store to detailsReponse
-    yield put({ type: "SET_DETAILS", payload: detailsResponse });
+    yield put({ type: "SET_DETAILS", payload: detailsResponse.data });
   } catch (err) {
     alert("Error fetching movie details:", err);
   }
@@ -78,7 +78,7 @@ const storeInstance = createStore(
   combineReducers({
     movies,
     genres,
-    movieItemDetails,
+    movieItemDetails
   }),
   // Add sagaMiddleware to our store
   applyMiddleware(sagaMiddleware, logger)

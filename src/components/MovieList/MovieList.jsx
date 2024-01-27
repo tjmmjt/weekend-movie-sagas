@@ -19,8 +19,6 @@ function MovieList() {
         {movies.map(movie => {
           return (
             <MovieItem key={movie.id} movie={movie}/>
-
-            // <MovieDetails />
           );
         })}
       </section>

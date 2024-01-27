@@ -1,8 +1,9 @@
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function MovieItem({ movie }) {
   const dispatch = useDispatch();
-
+    const history = useHistory()
     // handleClick() to send movieItem.id dispatch,
     // return movie details by id to store
     // then useHistory.push to MovieDetails which renders store on page
@@ -10,6 +11,7 @@ function MovieItem({ movie }) {
     const handleClick = () => {
         const payload = movie.id
         dispatch({type: 'FETCH_DETAILS', payload: payload})
+        history.push('/MovieItemDetails')
     }
 
   return (
