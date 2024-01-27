@@ -15,9 +15,9 @@ function MovieItemDetails() {
   }
 
   return movieDetails.map((movie) => (
-    <div key={movie.id} className="container">
+    <div key={movie.id} className="container" data-testid="movieDetails">
       <div className="header">
-        <button onClick={handleClick}>back to movie list</button>
+        <button onClick={handleClick} data-testid="toList">back to movie list</button>
         <h1>{movie.title}</h1>
       </div>
       <div className="movieImage">
