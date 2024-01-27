@@ -18,7 +18,7 @@ function MovieItemDetails() {
         <img src={movie.poster} alt={movie.title} />
       </div>
       <div className="details">
-        <h4>Genres:</h4>
+        <h4>Genres: {movie.genres}</h4>
         <h3>Description:</h3>
         <p>{movie.description}</p>
       </div>

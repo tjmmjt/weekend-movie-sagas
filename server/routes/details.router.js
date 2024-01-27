@@ -8,8 +8,11 @@ router
   .get("/:id", (req, res) => {
     // query to select all from movies where id === param
     const query = `
-        SELECT * FROM "movies"
-        WHERE id=$1;
+      SELECT movies.id, movies.title, movies.poster, movies.description, string_agg(genres.name, ', ') AS genres FROM "movies"
+      JOIN "movies_genres" ON movies.id=movies_genres.movie_id
+      JOIN "genres" ON movies_genres.genre_id=genres.id
+      WHERE movies.id=$1
+      GROUP BY movies.id;
     `;
     // initialize queryParams w/ req.params.id
     const queryParams = [req.params.id];

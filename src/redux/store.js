@@ -41,6 +41,9 @@ function* fetchDetails(action) {
   }
 }
 
+// fetchGenres
+
+
 // ! STORE
 // Used to store movies returned from the server
 const movies = (state = [], action) => {
