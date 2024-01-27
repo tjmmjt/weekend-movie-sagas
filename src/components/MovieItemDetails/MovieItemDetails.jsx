@@ -1,17 +1,26 @@
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 
 // TODO render MovieItemDetails
-// useSelector to retrieve Movie data
-function MovieItemDetails() {
-    const movie = useSelector(store => store.movieItemDetails)
-    console.log('movie details:', movie)
-    return (
-        <div className="header">
-            <h1>Movie Details</h1>
-            {/* <h2>{movie.title}</h2> */}
-        </div>
 
-    )
+function MovieItemDetails() {
+  // useSelector to retrieve Movie data
+  const movieDetails = useSelector((store) => store.movieItemDetails);
+  // console.log('Movie:', movieDetails)
+  return movieDetails.map((movie) => (
+    <div key={movie.id} className="container">
+      <div className="header">
+        <h1>{movie.title}</h1>
+      </div>
+      <div className="movieImage">
+        <img src={movie.poster} alt={movie.title} />
+      </div>
+      <div className="details">
+        <h4>Genres:</h4>
+        <h3>Description:</h3>
+        <p>{movie.description}</p>
+      </div>
+    </div>
+  ));
 }
 
-export default MovieItemDetails
+export default MovieItemDetails;
